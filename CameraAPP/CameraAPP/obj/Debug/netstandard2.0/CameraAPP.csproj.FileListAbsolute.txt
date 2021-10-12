@@ -1,0 +1,14 @@
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\bin\Debug\netstandard2.0\CameraAPP.deps.json
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\bin\Debug\netstandard2.0\CameraAPP.dll
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\bin\Debug\netstandard2.0\ref\CameraAPP.dll
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\bin\Debug\netstandard2.0\CameraAPP.pdb
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\CameraAPP.csprojAssemblyReference.cache
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\CameraAPP.AssemblyInfoInputs.cache
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\CameraAPP.AssemblyInfo.cs
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\CameraAPP.csproj.CoreCompileInputs.cache
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\CameraAPP.dll
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\ref\CameraAPP.dll
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\CameraAPP.pdb
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP\obj\Debug\netstandard2.0\View\MainPage.xaml.g.cs
