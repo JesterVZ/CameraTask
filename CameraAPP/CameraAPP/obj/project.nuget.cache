@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9yobPT/KG+in9b7AE+p80Gs4B+y4W+FTdl1o4UZgVihJw5atTcsFHKwSTCYLUeqfle4MxNJSxtk0wg95TIB4Yg==",
+  "dgSpecHash": "1+3nXt4QfAOG7AulmDCwQjU1B7nDX5ZOfMj4wA8Gl+cnzwGaINaLTP5Q+6yN3bdz1EKLz1u9dTwGdgI2J0+WaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jester\\source\\repos\\CameraAPP\\CameraAPP\\CameraAPP\\CameraAPP.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jester\\.nuget\\packages\\materialdesignthemes\\4.2.1\\materialdesignthemes.4.2.1.nupkg.sha512",
     "C:\\Users\\Jester\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Jester\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\Jester\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

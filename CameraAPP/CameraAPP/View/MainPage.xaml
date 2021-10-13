@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="CameraAPP.MainPage">
+             x:Class="CameraAPP.MainPage"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
     <StackLayout>
         <ListView ItemsSource="{Binding CameraList}">
@@ -9,21 +10,25 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal" Padding="10, 0, 10, 0">
-                                <Label Text="{Binding Name}" Margin="0, 0, 25, 0" VerticalOptions="Center"/>
-                                <StackLayout Orientation="Horizontal" Margin="0, 0, 25, 0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" Grid.Column="0"/>
+                                <StackLayout Orientation="Horizontal" Grid.Column="1">
                                     <Label Text="Есть ли звук: " VerticalOptions="Center"/>
-                                    <CheckBox IsChecked="False"/>
+                                    <CheckBox IsChecked="{Binding IsSoundOn}"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" Grid.Column="2">
                                     <Label Text="Идет ли запись: " VerticalOptions="Center"/>
-                                    <CheckBox IsChecked="False"/>
+                                    <CheckBox IsChecked="{Binding IsRecordingOn}"/>
                                 </StackLayout>
-                                
-                            </StackLayout>
+                            </Grid>
+
                         </ViewCell.View>
                     </ViewCell>
-                    
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
