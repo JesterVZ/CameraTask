@@ -23,20 +23,26 @@ namespace CameraAPP.ViewModel
             Task.Factory.StartNew(GetXmlDataFromServer);
         }
 
-        private async Task GetXmlDataFromServer()
+        private async Task<HttpResponseMessage> CheckHttpResponseMessage(string url)
         {
-
             HttpClient client = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage
             {
-                RequestUri = new Uri("http://demo.macroscop.com/configex?login=root"),
+                RequestUri = new Uri(url),
                 Method = HttpMethod.Get
             };
             request.Headers.Add("Accept", "application/xml");
             HttpResponseMessage response = await client.SendAsync(request);
-            if (response.StatusCode == HttpStatusCode.OK)
+            return response;
+        }
+
+        private async Task GetXmlDataFromServer()
+        {
+            HttpResponseMessage http = await CheckHttpResponseMessage("http://demo.macroscop.com/configex?login=root");
+
+            if (http.StatusCode == HttpStatusCode.OK)
             {
-                HttpContent responseContent = response.Content;
+                HttpContent responseContent = http.Content;
                 var xmlStr = await responseContent.ReadAsStringAsync();
                 XmlDocument xmlData = new XmlDocument();
                 xmlData.LoadXml(xmlStr);
@@ -47,15 +53,26 @@ namespace CameraAPP.ViewModel
                     for (int i = 0; i < xmlNode.ChildNodes.Count; i++)
                     {
                         XmlAttributeCollection thisAttr = xmlNode.ChildNodes[i].Attributes;
-
-
-                        CameraList.Add(new Camera
+                        if (Convert.ToBoolean(thisAttr[6].Value))
                         {
-                            Id = thisAttr[0].Value,
-                            Name = thisAttr[1].Value,
-                            IsSoundOn = Convert.ToBoolean(thisAttr[6].Value),
+                            CameraList.Add(new Camera
+                            {
+                                Id = thisAttr[0].Value,
+                                Name = thisAttr[1].Value,
+                                IsSoundOn = "daw.png"
 
-                        });
+                            });
+                        } else
+                        {
+                            CameraList.Add(new Camera
+                            {
+                                Id = thisAttr[0].Value,
+                                Name = thisAttr[1].Value,
+                                IsSoundOn = "disable.png"
+
+                            });
+                        }
+
                     }
                 }
                 await GetStreamsDataFromServer();
@@ -66,17 +83,11 @@ namespace CameraAPP.ViewModel
         
         private async Task GetStreamsDataFromServer()
         {
-            HttpClient client = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage
+            HttpResponseMessage http = await CheckHttpResponseMessage("http://demo.macroscop.com/command?type=getchannelsstates&login=root");
+            
+            if (http.StatusCode == HttpStatusCode.OK)
             {
-                RequestUri = new Uri("http://demo.macroscop.com/command?type=getchannelsstates&login=root"),
-                Method = HttpMethod.Get
-            };
-            request.Headers.Add("Accept", "application/xml");
-            HttpResponseMessage response = await client.SendAsync(request);
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                HttpContent responseContent = response.Content;
+                HttpContent responseContent = http.Content;
                 var xmlStr = await responseContent.ReadAsStringAsync();
                 XmlDocument xmlData = new XmlDocument();
                 xmlData.LoadXml(xmlStr);
@@ -84,22 +95,29 @@ namespace CameraAPP.ViewModel
                 XmlNodeList xmlNodes = root.SelectNodes("ChannelState");
                 for(int i = 0; i < xmlNodes.Count; i++)
                 {
-                    CameraList[i].Streams = new List<string>();
                     int index = IsCameraIdRight(xmlNodes[i].ChildNodes[0].InnerText);
                     if (index != -1)
                     {
-                        CameraList[i].IsRecordingOn = Convert.ToBoolean(xmlNodes[i].ChildNodes[1].InnerText);
+                        if (Convert.ToBoolean(xmlNodes[i].ChildNodes[1].InnerText))
+                        {
+                            CameraList[i].IsRecordingOn = "daw.png";
+                        } else
+                        {
+                            CameraList[i].IsRecordingOn = "disable.png";
+                        }
                         XmlNode streamsStates = xmlNodes[i].ChildNodes[2];
                         if (streamsStates.HasChildNodes)
                         {
+                            string streamsList = "";
                             XmlNodeList streams = streamsStates.SelectNodes("Stream");
                             for(int j = 0; j < streams.Count; j++)
                             {
                                 if(streams[j].ChildNodes[1].InnerText == "Active")
                                 {
-                                    CameraList[i].Streams.Add(streams[j].ChildNodes[0].InnerText);
+                                    streamsList += streams[j].ChildNodes[0].InnerText + "\n";
                                 }
                             }
+                            CameraList[i].Streams = streamsList;
                         }
                     }
                 }

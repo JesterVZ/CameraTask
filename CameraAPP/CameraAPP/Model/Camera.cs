@@ -11,8 +11,8 @@ namespace CameraAPP.Model
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public bool IsSoundOn { get; set; }
-        public bool IsRecordingOn { get; set; }
-        public List<string> Streams { get; set; }
+        public string Streams { get; set; }
+        public ImageSource IsSoundOn { get; set; }
+        public ImageSource IsRecordingOn { get; set; }
     }
 }

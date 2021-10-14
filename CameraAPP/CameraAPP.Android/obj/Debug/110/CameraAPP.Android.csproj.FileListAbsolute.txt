@@ -574,4 +574,5 @@ C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110
 C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110\res\drawable\jackdaw.svg
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110\res\drawable\daw.png
+C:\Users\Jester\source\repos\CameraAPP\CameraAPP\CameraAPP.Android\obj\Debug\110\res\drawable\disable.png

@@ -4,15 +4,18 @@
              x:Class="CameraAPP.MainPage">
 
     <StackLayout>
+        
         <Label Text="Список камер" HorizontalOptions="Center" FontSize="24" />
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Text="Имя" Grid.Column="0" HorizontalTextAlignment="Center"/>
             <Label Text="Есть ли звук" Grid.Column="1" HorizontalTextAlignment="Center"/>
             <Label Text="Идет ли запись" Grid.Column="2" HorizontalTextAlignment="Center"/>
+            <Label Text="Потоки" Grid.Column="3" HorizontalTextAlignment="Center"/>
         </Grid>
         <ListView ItemsSource="{Binding CameraList}">
             <ListView.ItemTemplate>
@@ -23,14 +26,16 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
+                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Name}" VerticalOptions="Center" Grid.Column="0" FontSize="18"/>
                                 <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="Center">
-                                    <CheckBox IsChecked="{Binding IsSoundOn}" />
+                                    <Image Source="{Binding IsSoundOn}"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" Grid.Column="2" HorizontalOptions="Center">
-                                    <CheckBox IsChecked="{Binding IsRecordingOn}"/>
+                                    <Image Source="{Binding IsRecordingOn}"/>
                                 </StackLayout>
+                                <Label Text="{Binding Streams}" VerticalOptions="Center" Grid.Column="3" FontSize="16"/>
                             </Grid>
 
                         </ViewCell.View>
@@ -39,6 +44,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
     </StackLayout>
 
 </ContentPage>
